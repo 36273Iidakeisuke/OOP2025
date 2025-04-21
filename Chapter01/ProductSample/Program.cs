@@ -2,6 +2,8 @@
     internal class Program {
         static void Main(string[] args) {
 
+            //コマンドライン引数で指定された範囲のフィートとメートルの対応表を出力する
+
             Product karinto = new Product(123, "かりんとう", 180);
 
 
