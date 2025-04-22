@@ -8,7 +8,7 @@
         static void PrintInchiToMeterList(int start, int end) {
             for (int inchi = start; inchi <= end; inchi++) {
                 double meter = InchiConverter.ToMeter(inchi);
-                Console.WriteLine($"{inchi}ft = {meter:0.0000}m");
+                Console.WriteLine($"{inchi}inchi = {meter:0.0000}m");
             }
         }
 
