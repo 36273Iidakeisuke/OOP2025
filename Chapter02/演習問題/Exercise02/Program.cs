@@ -1,7 +1,14 @@
 ﻿namespace Exercise02 {
     internal class Program {
         static void Main(string[] args) {
-            PrintInchiToMeterList(1, 10);
+
+            Console.Write("はじめ：");
+            int start = int.Parse(Console.ReadLine());
+
+            Console.Write("おわり：");
+            int end = int.Parse(Console.ReadLine());
+
+            PrintInchiToMeterList(start, end);
         }
 
         // インチからメートルへの対応表を出力
