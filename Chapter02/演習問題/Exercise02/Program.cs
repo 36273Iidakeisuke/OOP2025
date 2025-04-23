@@ -20,7 +20,21 @@
                 PrintMeterToInchiList(start, end);
             }
 
+            Console.WriteLine("１：ヤードからメートル");
+            Console.WriteLine("２：メートルからヤード");
+            Console.Write("入力：");
+            int M = int.Parse(Console.ReadLine());
 
+            Console.Write("変換前：");
+            int A = int.Parse(Console.ReadLine());
+
+
+
+            if (M == 1) {
+                PrintYardToMeterList(A);
+            } else {
+                PrintMeterToYardList(A);
+            }
         }
 
 
@@ -38,8 +52,21 @@
                 double inchi = InchiConverter.FromMeter(meter);
                 Console.WriteLine($"{meter}m = {inchi:0.0000}inchi");
             }
+
+
         }
 
 
+        static void PrintYardToMeterList(int A) {
+            double meter = YardConverter.ToMeter(A);
+            Console.WriteLine($"変換後：{meter:0.0000}m");
+        }
+
+
+
+        static void PrintMeterToYardList(int A) {
+            double yard = YardConverter.FromMeter(A);
+            Console.WriteLine($"変換後：{yard:0.0000}yard");
+        }
     }
 }
