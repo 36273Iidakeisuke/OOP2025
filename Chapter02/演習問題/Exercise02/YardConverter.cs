@@ -11,12 +11,12 @@ namespace Exercise02
         //定数
         private const double ratio = 0.9144;
 
-        //インチからメートルを求める
+        //ヤードからメートルを求める
         public static double ToMeter(double meter) {
             return meter * ratio;
         }
 
-        //メートルからフィールドを求める
+        //メートルからヤードを求める
         public static double FromMeter(double yard) {
             return yard / ratio;
         }

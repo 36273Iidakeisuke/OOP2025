@@ -2,30 +2,35 @@
     internal class Program {
         static void Main(string[] args) {
 
-            Console.WriteLine("１：インチからメートル");
-            Console.WriteLine("２：メートルからインチ");
-            Console.Write("入力：");
-            int n = int.Parse(Console.ReadLine());
+            //Console.WriteLine("１：インチからメートル");
+            //Console.WriteLine("２：メートルからインチ");
+            //Console.Write("入力：");
+            //int n = int.Parse(Console.ReadLine());
 
 
-            Console.Write("はじめ：");
-            int start = int.Parse(Console.ReadLine());
+            //Console.Write("はじめ：");
+            //int start = int.Parse(Console.ReadLine());
 
-            Console.Write("おわり：");
-            int end = int.Parse(Console.ReadLine());
+            //Console.Write("おわり：");
+            //int end = int.Parse(Console.ReadLine());
 
-            if (n == 1) {
-                PrintInchiToMeterList(start, end);
-            } else {
-                PrintMeterToInchiList(start, end);
-            }
+            //if (n == 1) {
+            //    PrintInchiToMeterList(start, end);
+            //} else {
+            //    PrintMeterToInchiList(start, end);
+            //}
 
             Console.WriteLine("１：ヤードからメートル");
             Console.WriteLine("２：メートルからヤード");
             Console.Write("入力：");
             int M = int.Parse(Console.ReadLine());
 
-            Console.Write("変換前：");
+            if(M == 1) {
+                Console.Write("変換前(ヤード)：");
+            } else {
+                Console.Write("変換前(メートル)：");
+            }
+
             int A = int.Parse(Console.ReadLine());
 
 
@@ -56,17 +61,17 @@
 
         }
 
-
+        //ヤードからメートルの対応表を出力
         static void PrintYardToMeterList(int A) {
             double meter = YardConverter.ToMeter(A);
-            Console.WriteLine($"変換後：{meter:0.0000}m");
+            Console.WriteLine($"変換後（メートル）：{meter:0.0000}m");
         }
 
 
-
+        //メートルからヤードの対応表を出力
         static void PrintMeterToYardList(int A) {
             double yard = YardConverter.FromMeter(A);
-            Console.WriteLine($"変換後：{yard:0.0000}yard");
+            Console.WriteLine($"変換後（ヤード）：{yard:0.0000}yard");
         }
     }
 }
