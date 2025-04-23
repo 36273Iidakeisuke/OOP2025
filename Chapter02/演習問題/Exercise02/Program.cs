@@ -43,23 +43,21 @@
         }
 
 
-        // インチからメートルへの対応表を出力
-        static void PrintInchiToMeterList(int start, int end) {
-            for (int inchi = start; inchi <= end; inchi++) {
-                double meter = InchiConverter.ToMeter(inchi);
-                Console.WriteLine($"{inchi}inchi = {meter:0.0000}m");
-            }
-        }
+        //// インチからメートルへの対応表を出力
+        //static void PrintInchiToMeterList(int start, int end) {
+        //    for (int inchi = start; inchi <= end; inchi++) {
+        //        double meter = InchiConverter.ToMeter(inchi);
+        //        Console.WriteLine($"{inchi}inchi = {meter:0.0000}m");
+        //    }
+        //}
 
-        // メートルからインチへの対応表を出力
-        static void PrintMeterToInchiList(int start, int end) {
-            for (int meter = start; meter <= end; meter++) {
-                double inchi = InchiConverter.FromMeter(meter);
-                Console.WriteLine($"{meter}m = {inchi:0.0000}inchi");
-            }
-
-
-        }
+        //// メートルからインチへの対応表を出力
+        //static void PrintMeterToInchiList(int start, int end) {
+        //    for (int meter = start; meter <= end; meter++) {
+        //        double inchi = InchiConverter.FromMeter(meter);
+        //        Console.WriteLine($"{meter}m = {inchi:0.0000}inchi");
+        //    }
+        //}
 
         //ヤードからメートルの対応表を出力
         static void PrintYardToMeterList(int A) {
