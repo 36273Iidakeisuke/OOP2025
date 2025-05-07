@@ -25,7 +25,9 @@
             Console.Write("入力：");
             int M = int.Parse(Console.ReadLine());
 
-            if(M == 1) {
+            //(M == 1) ? Console.Write("変換前(ヤード)：") : Console.Write("変換前(メートル)：")
+
+            if (M == 1) {
                 Console.Write("変換前(ヤード)：");
             } else {
                 Console.Write("変換前(メートル)：");
