@@ -14,9 +14,9 @@
 
         //2.1.4
         private static void printSongs(Song[] songs) {
-            for (int i = 0; i < songs.Length; i++)
-                Console.WriteLine($"{songs[i].Title}, {songs[i].ArtistName}, {songs[i].Length / 60}:{songs[i].Length % 60}");
+            for (int i = 0; i < songs.Length; i++) {
+                Console.WriteLine($"{songs[i].Title}, {songs[i].ArtistName}, {(songs[i].Length / 60).ToString("00")}:{(songs[i].Length % 60).ToString("00")}");
+            }
         }
-
     }
 }
