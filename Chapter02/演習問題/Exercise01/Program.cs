@@ -16,6 +16,9 @@ namespace Exercise01 {
             Console.WriteLine("曲の登録");
 
             var songs = InputSongs();
+            //曲の登録
+
+           
 
             printSongs(songs.ToArray());
 
