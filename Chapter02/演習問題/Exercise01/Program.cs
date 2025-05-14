@@ -1,20 +1,48 @@
-﻿namespace Exercise01 {
+﻿using System.Reflection;
+
+namespace Exercise01 {
     public class Program {
         static void Main(string[] args) {
             //2.1.3
-            var songs = new Song[] {
-                new Song("Let it be", "The Beatles", 243),
-                new Song("Bridge Over Troubled Water", "Simon & Garfunkel", 293),
-                new Song("Close To You", "Carpenters", 276),
-                new Song("Honesty", "Billy Joel", 231),
-                new Song("I Will Always Love You", "Whitney Houston", 273),
-            };
+            //var songs = new Song[] {
+            //    new Song("Let it be", "The Beatles", 243),
+            //    new Song("Bridge Over Troubled Water", "Simon & Garfunkel", 293),
+            //    new Song("Close To You", "Carpenters", 276),
+            //    new Song("Honesty", "Billy Joel", 231),
+            //    new Song("I Will Always Love You", "Whitney Houston", 273),
+            //};
 
 
+            Console.WriteLine("曲の登録");
 
+            var songs = InputSongs();
 
+            printSongs(songs.ToArray());
 
-            printSongs(songs);
+        }
+
+        static List<Song> InputSongs() {
+            var songs = new List<Song>();
+            while (true) {
+                Console.Write("曲名：");
+                var title = Console.ReadLine();
+
+                //endを入力したら抜け出す
+                if (title == null || title.Equals("end")) {
+                    break;
+                }
+
+                Console.Write("アーティスト名：");
+                var artist = Console.ReadLine();
+                Console.Write("演奏時間（秒）：");
+                var length = int.Parse(Console.ReadLine());
+
+                //Listに追加
+                Song song = new Song(title, artist, length);
+                songs.Add(song);
+            }
+            return songs;
+
         }
 
         //2.1.4
@@ -25,8 +53,8 @@
         //           ($"title:{song.Title,-30}, artist:{song.ArtistName,-20},{minutes}:{seconds:00}");
         //   }
 
-        
-        
+
+
         //TimeSpanの構成
         private static void printSongs(Song[] songs) {
             foreach (var song in songs) {
