@@ -16,12 +16,16 @@ namespace Section01 {
                 "Hong Kong",
             };
 
-            var lowerList = cities.ConvertAll(s => s.ToLower());
-            lowerList.ForEach(s => Console.WriteLine(s));
+            var query = cities.Where(s => s.Length <= 5);    //- query変数に代入
+            foreach (var item in query) {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("------");
 
-
-
-
+            cities[0] = "Osaka";  //- cities[0]を変更 
+            foreach (var item in query) {//- 再度、queryの内容を取り出す
+                Console.WriteLine(item);
+            }
         }
     }
 }

@@ -46,17 +46,19 @@ namespace Exercise02 {
 
         private static void Exercise2_3(List<string> cities) {
             Console.WriteLine("小文字の”o”が含まれている都市名。");
-            var cityname = cities.Where(s => s.Contains('o')).ToList();
-            cityname.ForEach(Console.WriteLine);
+            var cityname = cities.Where(s => s.Contains('o')).ToArray();
+            foreach(var s in cityname) {
+                Console.WriteLine(s);
+            }
         }
 
         private static void Exercise2_4(List<string> cities) {
             Console.WriteLine("頭文字の”B”の都市の文字数。");
-            var cityName = cities.Where(s => s[0]==('B'))
-                .Select(s => s.Length).ToList();
-            cityName.ForEach(Console.WriteLine);
-
- 
+            var cityName = cities.Where(s => s.StartsWith('B'))
+                .Select(s => new { s,s.Length}).ToArray();
+            foreach(var data in cityName) {
+                Console.WriteLine(data.s + "：" + data.Length + "文字");
+            }
         }
     }
 }

@@ -48,7 +48,7 @@ public class GameForm : Form {
         // 落ちるブロックの処理
         for (int i = fallingBlocks.Count - 1; i >= 0; i--) {
             Rectangle block = fallingBlocks[i];
-            block.Y += 5;
+            block.Y += 10;
 
             // ブロックが画面外に出たら削除
             if (block.Y > this.ClientSize.Height) {
@@ -87,7 +87,7 @@ public class GameForm : Form {
 
         // 落ちてくるブロックを描画
         foreach (var block in fallingBlocks) {
-            g.FillRectangle(Brushes.Red, block);
+            g.FillRectangle(Brushes.Black, block);
         }
 
         // スコアを表示
