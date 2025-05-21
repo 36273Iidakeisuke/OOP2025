@@ -22,29 +22,25 @@ namespace Exercise01 {
         }
 
         private static void Exercise1(List<int> numbers) {
-            var num1 = numbers.Exists(s => s % 8 == 0 || s % 9 == 0);
-            if (num1 == true) {
-                Console.WriteLine(num1);
-            } else {
-
-            }
+            Console.WriteLine("8か9で割り切れるかどうか");
+            Console.WriteLine (numbers.Exists(n => n % 8 == 0 || n % 9 == 0) ? "真" : "偽");
         }
 
-                private static void Exercise2(List<int> numbers) {
-                    numbers.ForEach(s => Console.WriteLine(s / 2.0));
+        private static void Exercise2(List<int> numbers) {
+            Console.WriteLine("各要素を2.0で割った値");
+            numbers.ForEach(n => Console.WriteLine(n / 2.0));
 
-                }
+        }
 
         private static void Exercise3(List<int> numbers) {
-            var num2 = numbers.Where(s => 50 <= s);
-            foreach (var s in num2) {
-                Console.WriteLine(s);
-            }
+            Console.WriteLine("値が50以上の要素");
+            numbers.Where(n => 50 <= n).ToList().ForEach(Console.WriteLine);
         }
 
         private static void Exercise4(List<int> numbers) {
-            var num3 = numbers.Select(s => s * 2).ToList();
-            num3.ForEach(Console.WriteLine);
+            Console.WriteLine("値を2倍にして要素に格納し、その要素を出力");
+            numbers.Select(n => n * 2).ToList().ForEach(Console.WriteLine);
+            
         }
     }
 }

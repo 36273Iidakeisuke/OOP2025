@@ -10,11 +10,13 @@ public class GameForm : Form {
     private const int BlockHeight = 50;
 
     private int playerX;
+    private int playerY;
     private List<Rectangle> fallingBlocks;
     private Timer gameTimer;
     private Random random;
     private int score;
     private bool gameOver;
+
 
     public GameForm() {
         this.Text = "避けるゲーム";
@@ -31,7 +33,7 @@ public class GameForm : Form {
         gameOver = false;
 
         gameTimer = new Timer();
-        gameTimer.Interval = 20; // 20msごとに更新
+        gameTimer.Interval = 15; // 20msごとに更新
         gameTimer.Tick += GameTimer_Tick;
         gameTimer.Start();
 
@@ -54,7 +56,7 @@ public class GameForm : Form {
             if (block.Y > this.ClientSize.Height) {
                 fallingBlocks.RemoveAt(i);
                 score++;
-            } else if (block.IntersectsWith(new Rectangle(playerX, this.ClientSize.Height - PlayerHeight, PlayerWidth, PlayerHeight))) {
+            } else if (block.IntersectsWith(new Rectangle(playerX, this.ClientSize.Height - PlayerHeight + playerY, PlayerWidth, PlayerHeight))) {
                 gameOver = true;
             } else {
                 fallingBlocks[i] = block;
@@ -71,10 +73,23 @@ public class GameForm : Form {
     }
 
     private void GameForm_KeyDown(object sender, KeyEventArgs e) {
-        if (e.KeyCode == Keys.Left) {
-            playerX = Math.Max(0, playerX - 10); // 左に移動
-        } else if (e.KeyCode == Keys.Right) {
-            playerX = Math.Min(this.ClientSize.Width - PlayerWidth, playerX + 10); // 右に移動
+        this.Text = e.KeyCode.ToString();
+
+        switch (e.KeyCode) {
+            case Keys.Left:
+                playerX = Math.Max(0, playerX - 20); // 左に移動
+                break;
+            case Keys.Up:
+                playerY = Math.Min(this.ClientSize.Height - PlayerHeight, playerY - 20);//上に移動
+                break;
+            case Keys.Right:
+                playerX = Math.Min(this.ClientSize.Width - PlayerWidth, playerX + 20); // 右に移動
+                break;
+            case Keys.Down:
+                playerY = Math.Min(this.ClientSize.Height - PlayerHeight, playerY + 20);//下に移動
+                break;
+            default:
+                break;
         }
     }
 
@@ -83,7 +98,9 @@ public class GameForm : Form {
         Graphics g = e.Graphics;
 
         // プレイヤーを描画
-        g.FillRectangle(Brushes.Blue, playerX, this.ClientSize.Height - PlayerHeight, PlayerWidth, PlayerHeight);
+        //g.FillRectangle(Brushes.Blue, playerX, this.ClientSize.Height - PlayerHeight, PlayerWidth, PlayerHeight);
+        g.FillRectangle(Brushes.Blue, playerX, this.ClientSize.Height - PlayerHeight + playerY, PlayerWidth, PlayerHeight);
+
 
         // 落ちてくるブロックを描画
         foreach (var block in fallingBlocks) {
