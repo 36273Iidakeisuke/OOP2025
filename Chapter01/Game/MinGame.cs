@@ -25,6 +25,7 @@ public class GameForm : Form {
         this.FormBorderStyle = FormBorderStyle.FixedDialog;
         this.MaximizeBox = false;
         this.KeyPreview = true;  // KeyPreviewを有効にする
+        
 
         playerX = this.ClientSize.Width / 2 - PlayerWidth / 2;
         fallingBlocks = new List<Rectangle>();
@@ -39,6 +40,15 @@ public class GameForm : Form {
 
         this.KeyDown += GameForm_KeyDown;  // キー入力のイベントを追加
     }
+
+
+    private Image playerImage;
+
+        public GameForm() {
+            InitializeComponent();
+            playerImage = Image.FromFile("player.png"); // またはリソースとして読み込む
+        }
+
 
     private void GameTimer_Tick(object sender, EventArgs e) {
         if (gameOver) {
@@ -73,34 +83,36 @@ public class GameForm : Form {
     }
 
     private void GameForm_KeyDown(object sender, KeyEventArgs e) {
-        this.Text = e.KeyCode.ToString();
 
         switch (e.KeyCode) {
             case Keys.Left:
                 playerX = Math.Max(0, playerX - 20); // 左に移動
                 break;
             case Keys.Up:
-                playerY = Math.Min(this.ClientSize.Height - PlayerHeight, playerY - 20);//上に移動
+                playerY = Math.Max(-(this.ClientSize.Height - PlayerHeight), playerY - 20);//上に移動
                 break;
             case Keys.Right:
                 playerX = Math.Min(this.ClientSize.Width - PlayerWidth, playerX + 20); // 右に移動
                 break;
             case Keys.Down:
-                playerY = Math.Min(this.ClientSize.Height - PlayerHeight, playerY + 20);//下に移動
+                playerY = Math.Min(0, playerY + 20);//下に移動
                 break;
             default:
                 break;
         }
+
+        this.Text = (playerY).ToString();
+
     }
 
     protected override void OnPaint(PaintEventArgs e) {
         base.OnPaint(e);
         Graphics g = e.Graphics;
 
-        // プレイヤーを描画
-        //g.FillRectangle(Brushes.Blue, playerX, this.ClientSize.Height - PlayerHeight, PlayerWidth, PlayerHeight);
-        g.FillRectangle(Brushes.Blue, playerX, this.ClientSize.Height - PlayerHeight + playerY, PlayerWidth, PlayerHeight);
-
+        //// プレイヤーを描画
+        ////g.FillRectangle(Brushes.Blue, playerX, this.ClientSize.Height - PlayerHeight, PlayerWidth, PlayerHeight);
+        //g.FillRectangle(Brushes.Blue, playerX, this.ClientSize.Height - PlayerHeight + playerY, PlayerWidth, PlayerHeight);
+        g.DrawImage(playerImage, playerX, playerY, PlayerWidth, PlayerHeight);
 
         // 落ちてくるブロックを描画
         foreach (var block in fallingBlocks) {
@@ -110,4 +122,5 @@ public class GameForm : Form {
         // スコアを表示
         g.DrawString("スコア: " + score, this.Font, Brushes.Black, 10, 10);
     }
+
 }
