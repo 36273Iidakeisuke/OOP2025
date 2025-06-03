@@ -1,4 +1,6 @@
 ﻿
+using System.Text;
+
 namespace Exercise03 {
     internal class Program {
         static void Main(string[] args) {
@@ -32,7 +34,17 @@ namespace Exercise03 {
         }
 
         private static void Exercise3(string text) {
-            //やらなくてよい
+            var words = text.Split(' ');
+            var sb = new StringBuilder();
+
+            foreach (var item in words) {
+                sb.Append(item);
+                sb.Append(' ');
+            }
+
+            var trimwords = sb.ToString().Trim();
+            trimwords += '.';
+            Console.WriteLine(trimwords);
         }
 
         private static void Exercise4(string text) {
