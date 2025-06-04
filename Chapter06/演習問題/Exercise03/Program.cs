@@ -20,7 +20,12 @@ namespace Exercise03 {
 
             Console.WriteLine("6.3.5");
             Exercise5(text);
+
+            Console.WriteLine("6.3.99");
+            Exercise6(text);
+
         }
+
 
         private static void Exercise1(string text) {
             var spaces = text.Count(c => c == ' ');
@@ -42,7 +47,7 @@ namespace Exercise03 {
                 sb.Append(' ');
             }
 
-            var trimwords = sb.ToString().Trim();
+            var trimwords = sb.ToString().TrimEnd();
             trimwords += '.';
             Console.WriteLine(trimwords);
         }
@@ -58,5 +63,12 @@ namespace Exercise03 {
             foreach (var word in words)
                 Console.WriteLine(word);
         }
+
+        private static void Exercise6(string text) {
+            for (char ch = 'a'; ch <= 'z'; ch++) {
+                Console.WriteLine(ch + "：" + text.Count(s => s == ch));
+            }
+        }
+
     }
 }
