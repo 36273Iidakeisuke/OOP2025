@@ -23,7 +23,6 @@ namespace Exercise01 {
             }
             return rtn;
         }
-
         public override string ToString() => $"{Year}年{Month}月";
     }
 }
