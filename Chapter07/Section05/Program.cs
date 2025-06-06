@@ -4,6 +4,7 @@
             var text = "The quick brown fox jumps over the lazy dog";
             var words = text.Split(' ');
             var word = words.FirstOrDefault(s => s.Length == 10);
+            Console.WriteLine(word);
 
             var numbers = new List<int> { 9, 7, -5, -4, 2, 5, 4, 0, -4, 8, -1, 0, 4 };
             var index = numbers.FindIndex(s => s < 0);
