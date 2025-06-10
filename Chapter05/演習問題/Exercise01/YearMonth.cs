@@ -5,15 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Exercise01 {
-    public record YearMonth {
-        public readonly int Year;
-        public readonly int Month;
+    public record YearMonth(int year, int month) {
+        public readonly int Year = year;
+        public readonly int Month = month;
+
         public bool Is21Century => 2000 < Year && Year <= 2100;
 
-        public YearMonth(int year, int month) {
-            Year = year;
-            Month = month;
-        }
         public YearMonth AddOneMonth() {
             YearMonth rtn;
             if (Month == 12) {

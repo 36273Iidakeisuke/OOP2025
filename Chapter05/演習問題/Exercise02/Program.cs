@@ -52,9 +52,10 @@ namespace Exercise02 {
 
         private static void Exercise5(YearMonth[] ymCollection) {
             var index = ymCollection.Select(s => s.AddOneMonth()).ToArray();
-            foreach (var item in index) {
-                Console.WriteLine(item);
-            }
+            //foreach (var item in index) {
+            //    Console.WriteLine(item);
+            //}
+            Exercise2(index);
         }
     }
 }
