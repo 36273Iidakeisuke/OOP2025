@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Exercise01 {
-    public class YearMonth {
+    public record YearMonth {
         public readonly int Year;
         public readonly int Month;
         public bool Is21Century => 2000 < Year && Year <= 2100;
