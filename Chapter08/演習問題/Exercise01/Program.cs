@@ -19,13 +19,12 @@ namespace Exercise01 {
             foreach (var c in work) {
                 if ('A' <= c && c <= 'Z') {
                     if (dictionary.ContainsKey(c)) {
-                        dictionary[c] ++;
+                        dictionary[c]++;
                     } else {
                         dictionary[c] = 1;
                     }
                 }
             }
-            
             foreach (var item in dictionary.OrderBy(p => p.Key)) {
                 Console.WriteLine(item.Key + "：" +item.Value);
             }
@@ -33,6 +32,22 @@ namespace Exercise01 {
         }
 
         private static void Exercise2(string text) {
+            var dictionary = new SortedDictionary<char, int>();
+            var work = text.ToUpper();
+            foreach (var c in work) {
+                if ('A' <= c && c <= 'Z') {
+                    if (dictionary.ContainsKey(c)) {
+                        dictionary[c]++;
+                    } else {
+                        dictionary[c] = 1;
+                    }
+                }
+            }
+
+            foreach (var item in dictionary) {
+                Console.WriteLine(item.Key + "：" + item.Value);
+            }
+
 
         }
     }
