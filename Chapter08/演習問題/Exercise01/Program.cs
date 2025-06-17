@@ -8,11 +8,7 @@ namespace Exercise01 {
             Console.WriteLine();
 
             Exercise2(text);
-
-
-
         }
-
         private static void Exercise1(string text) {
             var dictionary = new Dictionary<char, int>();
             var work = text.ToUpper();
@@ -26,11 +22,9 @@ namespace Exercise01 {
                 }
             }
             foreach (var item in dictionary.OrderBy(p => p.Key)) {
-                Console.WriteLine(item.Key + "：" +item.Value);
+                Console.WriteLine(item.Key + "：" + item.Value);
             }
-
         }
-
         private static void Exercise2(string text) {
             var dictionary = new SortedDictionary<char, int>();
             var work = text.ToUpper();
@@ -43,12 +37,9 @@ namespace Exercise01 {
                     }
                 }
             }
-
             foreach (var item in dictionary) {
                 Console.WriteLine(item.Key + "：" + item.Value);
             }
-
-
         }
     }
 }
