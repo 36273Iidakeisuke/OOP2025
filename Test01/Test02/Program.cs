@@ -153,7 +153,13 @@ namespace Test02 {
         //          New Delhi : 9文字
         //          Hong Kong : 9文字】
         private static void Exercise09(List<string> cities) {
-            
+            var citie = cities.Select(s => s.Length).Order();
+            foreach (var item in citie) {
+                Console.WriteLine(item);
+            }
+
+
+
 
 
 
