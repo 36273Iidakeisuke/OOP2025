@@ -9,8 +9,5 @@ namespace Test01 {
         public string Name { get; init; } = string.Empty;
         public string Subject { get; init; } = string.Empty;
         public int Score { get; init; }
-
-
-
     }
 }
