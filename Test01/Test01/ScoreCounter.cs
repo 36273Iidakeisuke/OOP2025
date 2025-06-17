@@ -4,7 +4,7 @@
 
         // コンストラクタ
         public ScoreCounter(string filePath) {
-
+            var
 
         }
 
