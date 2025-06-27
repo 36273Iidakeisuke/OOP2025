@@ -7,8 +7,6 @@ namespace Exercise01 {
             DisplayDatePattern1(dateTime);
             DisplayDatePattern2(dateTime);
             DisplayDatePattern3(dateTime);
-
-            
         }
 
         
