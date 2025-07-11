@@ -20,6 +20,7 @@ namespace Exercise01 {
 
         static string Serialize(Employee emp) {
             var options = new JsonSerializerOptions {
+                PropertyNamingPolicy =JsonNamingPolicy.CamelCase,
                 WriteIndented = true,
                 Encoder = JavaScriptEncoder.Create(UnicodeRanges.All)
             };
@@ -28,7 +29,11 @@ namespace Exercise01 {
         }
 
         static Employee? Deserialize(string text) {
-            var novel = JsonSerializer.Deserialize<Employee>(text);
+            var options = new JsonSerializerOptions {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                Encoder = JavaScriptEncoder.Create(UnicodeRanges.All)
+            };
+            var novel = JsonSerializer.Deserialize<Employee>(text, options);
             return novel;
         }
     }
