@@ -153,6 +153,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkGray;
+            BackgroundImage = Properties.Resources.ダウンロード;
             ClientSize = new Size(1153, 756);
             Controls.Add(tbFavorite);
             Controls.Add(btdelete);
@@ -163,6 +164,7 @@
             Controls.Add(lbTitles);
             Controls.Add(btRssGet);
             Controls.Add(cbUrl);
+            ForeColor = SystemColors.ControlText;
             Name = "Form1";
             Text = "RSSリーダー";
             Load += Form1_Load;

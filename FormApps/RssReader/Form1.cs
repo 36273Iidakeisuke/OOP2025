@@ -13,7 +13,6 @@ namespace RssReader {
                 {"国内","https://news.yahoo.co.jp/rss/topics/domestic.xml" },
                 {"国際","https://news.yahoo.co.jp/rss/topics/world.xml" },
                 {"経済","https://news.yahoo.co.jp/rss/topics/business.xml" },
-                {"エンタメ","https://news.yahoo.co.jp/rss/topics/entertainment.xml" },
                 {"スポーツ","https://news.yahoo.co.jp/rss/topics/sports.xml" },
         };
         public Form1() {
@@ -44,14 +43,14 @@ namespace RssReader {
                 items.ForEach(item => lbTitles.Items.Add(item.Title ?? "データなし"));
             }
         }
-        //コンボボックスの文字列をチェックしてアクセス可能なURLを返却する
+        //コンボックスの文字列をチェックしてアクセス可能なURLを返却する
         private string getRssUrl(string str) {
             if (rssUrlDict.ContainsKey(str)) {
                 return rssUrlDict[str];
             }
             return str;
         }
-        //タイトルを選択（クリック）したときに呼ばれるイベントハンドラ
+        //タイトルを選択（クリック）したときに呼ばれるイントハンドラ
         private void lbTitles_Click(object sender, EventArgs e) {
             if (lbTitles.SelectedIndex >= 0 && lbTitles.SelectedIndex < items.Count) {
                 webView21.Source = new Uri(items[lbTitles.SelectedIndex].Link);
@@ -69,15 +68,15 @@ namespace RssReader {
             cbUrl.Items.AddRange(rssUrlDict.Select(k => k.Key).ToArray());
         }
         private void btfavorite_Click(object sender, EventArgs e) {
-            if (string.IsNullOrEmpty(tbFavorite.Text)) {
+            if (cbUrl.Items.Contains(tbFavorite.Text) || rssUrlDict.ContainsKey(cbUrl.Text)) {
+                return;
+            }
+                if (string.IsNullOrEmpty(tbFavorite.Text)) {
                 if (!string.IsNullOrEmpty(cbUrl.Text)) {
                     rssUrlDict.Add(cbUrl.Text, cbUrl.Text);
                     cbUrl.Items.Add(cbUrl.Text);
                 }
 
-                return;
-            }
-            if (cbUrl.Items.Contains(tbFavorite.Text)) {
                 return;
             } else {
                 rssUrlDict.Add(tbFavorite.Text, cbUrl.Text);
@@ -85,9 +84,7 @@ namespace RssReader {
             }
         }
         private void btdelete_Click(object sender, EventArgs e) {
-            if (string.IsNullOrEmpty(tbFavorite.Text)) {
-                return;
-            } else if (cbUrl.Items.Contains(tbFavorite.Text)) {
+            if (cbUrl.Items.Contains(cbUrl.Text)) {
                 rssUrlDict.Remove(tbFavorite.Text);
                 cbUrl.Items.Remove(tbFavorite.Text);
             }
