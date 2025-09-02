@@ -1,4 +1,5 @@
 using System.Net;
+using System.Text.Json;
 using System.Xml.Linq;
 using static System.Net.WebRequestMethods;
 
@@ -18,6 +19,24 @@ namespace RssReader {
         public Form1() {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e) {
+            btBack.Enabled = webView21.CanGoBack;
+            btforward.Enabled = webView21.CanGoForward;
+            cbUrl.Items.AddRange(rssUrlDict.Select(k => k.Key).ToArray());
+
+            // JSONÉfÅ[É^ÇÃì«Ç›çûÇ›Ç∆ïúå≥
+            try {
+                string readJson = System.IO.File.ReadAllText("dictionary.json");
+                var loadedDict = JsonSerializer.Deserialize<Dictionary<string, string>>(readJson);
+                rssUrlDict = loadedDict ?? new Dictionary<string, string>();
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
         private async void btRssGet_Click(object sender, EventArgs e) {
             using (var wc = new HttpClient()) {
                 try {
@@ -62,16 +81,11 @@ namespace RssReader {
         private void btBack_Click(object sender, EventArgs e) {
             webView21.GoBack();
         }
-        private void Form1_Load(object sender, EventArgs e) {
-            btBack.Enabled = webView21.CanGoBack;
-            btforward.Enabled = webView21.CanGoForward;
-            cbUrl.Items.AddRange(rssUrlDict.Select(k => k.Key).ToArray());
-        }
         private void btfavorite_Click(object sender, EventArgs e) {
             if (cbUrl.Items.Contains(tbFavorite.Text) || rssUrlDict.ContainsKey(cbUrl.Text)) {
                 return;
             }
-                if (string.IsNullOrEmpty(tbFavorite.Text)) {
+            if (string.IsNullOrEmpty(tbFavorite.Text)) {
                 if (!string.IsNullOrEmpty(cbUrl.Text)) {
                     rssUrlDict.Add(cbUrl.Text, cbUrl.Text);
                     cbUrl.Items.Add(cbUrl.Text);
@@ -92,6 +106,17 @@ namespace RssReader {
         private void webView21_SourceChanged(object sender, Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs e) {
             btBack.Enabled = webView21.CanGoBack;
             btforward.Enabled = webView21.CanGoForward;
+        }
+
+        private void tsmEnd_Click(object sender, EventArgs e) {
+            Application.Exit();
+        }
+
+        // JSONÇ∆ÇµÇƒï€ë∂
+        private void tsmKeep_Click(object sender, EventArgs e) {
+            var options = new JsonSerializerOptions { WriteIndented = true }; // å©Ç‚Ç∑Ç¢JSON
+            string json = JsonSerializer.Serialize(rssUrlDict, options);
+            System.IO.File.WriteAllText("dictionary.json", json);
         }
     }
 }
