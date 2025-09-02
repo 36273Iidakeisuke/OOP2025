@@ -21,38 +21,22 @@ namespace Exercise05 {
                 var s = Regex.Replace(line,
                     @"<(/?)([A-Z][A-Z0-9]*)(.*)>",
                     s => {
-                        string.Format("<{0}{1}{2}>",
+                         return string.Format("<{0}{1}{2}>",
                             s.Groups[1].Value,
                             s.Groups[2].Value.ToLower(),
                             s.Groups[3].Value
-                            );
+                         );
                     }
-                    );
+                );
 
-                sb.AppendLine(
-                    s
-                    )
-                    ;
-
+                sb.AppendLine(s);
             }
 
-            File.WriteAllText(
-                "sampleOut.html", sb.ToString(
-                    )
-                )
-                ;
+            File.WriteAllText("sampleOut.html", sb.ToString());
 
             //これ以降は確認用
-            var text = File.ReadAllText
-                (
-                "sampleOut.html"
-                )
-                ;
-            Console.WriteLine
-                (
-                text
-                )
-                ;
+            var text = File.ReadAllText("sampleOut.html");
+            Console.WriteLine(text);
         }
     }
 }
