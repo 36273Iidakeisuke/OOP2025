@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SampleApplication"
         mc:Ignorable="d"
-        Title="SampleApplication" Height="300" Width="300" FontSize="14">
+        Title="SampleApplication" Height="300" Width="350" FontSize="14">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -23,20 +23,20 @@
 
         <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="項目"/>
         <TextBlock Grid.Column="2" Text="設定値"/>
-        <Label Grid.Row="1" Content="ON/OFF(_O)"/>
+        <Label Grid.Row="1" Content="ON/OFF(_O)" Target="{Binding ElementName=CheckBox,Mode=OneWay}"/>
         <CheckBox x:Name="CheckBox" Grid.Row="1" Grid.Column="1" Content="チェックしたらON"
-                  VerticalAlignment="Center"/>
+                  VerticalAlignment="Center" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
         <TextBlock x:Name="CheckBoxTextBlock" Grid.Row="1" Grid.Column="2"
                    VerticalAlignment="Center"/>
-        <Label Grid.Row="2" Content="色(_C)"/>
+        <Label Grid.Row="2" Content="色(_C)" Target="{Binding ElementName=RedRedioButton,Mode=OneWay}"/>
         <StackPanel Grid.Row="2" Grid.Column="1">
-            <RadioButton x:Name="RedRedioButton" GroupName="Color" Content="赤"/>
-            <RadioButton x:Name="YellowRedioButton" GroupName="Color" Content="黄"/>
-            <RadioButton x:Name="BlueRedioButton" GroupName="Color" Content="青"/>
+            <RadioButton x:Name="RedRedioButton" GroupName="Color" Content="赤" Checked="ColorRedioButton_Checked"/>
+            <RadioButton x:Name="YellowRedioButton" GroupName="Color" Content="黄" Checked="ColorRedioButton_Checked"/>
+            <RadioButton x:Name="BlueRedioButton" GroupName="Color" Content="青" Checked="ColorRedioButton_Checked"/>
         </StackPanel>
         <TextBlock x:Name="ColorText" Grid.Row="2" Grid.Column="2"/>
-        <Label Grid.Row="3" Content="季節(_S)"/>
-        <ComboBox x:Name="SeasonComboBox" Grid.Row="3" Grid.Column="1">
+        <Label Grid.Row="3" Content="季節(_S)" Target="{Binding ElementName=SeasonComboBox,Mode=OneWay}"/>
+        <ComboBox x:Name="SeasonComboBox" Grid.Row="3" Grid.Column="1" SelectionChanged="SeasonComboBox_SelectionChanged">
             <ComboBoxItem Content="春"/>
             <ComboBoxItem Content="夏"/>
             <ComboBoxItem Content="秋"/>

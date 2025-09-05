@@ -25,12 +25,19 @@ namespace SampleApplication
             InitializeComponent();
         }
 
-        private void cancelButton_Click(object sender, RoutedEventArgs e) {
-            MessageBox.Show("キャンセルされました");
+        private void SeasonComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            SeasonTextBlock.Text = (string)((ComboBoxItem)(SeasonComboBox.SelectedItem)).Content;
+        }
+        private void ColorRedioButton_Checked(object sender,RoutedEventArgs e) {
+            ColorText.Text = (string)((RadioButton)(sender)).Content;
         }
 
-        private void okButton_Click(object sender, RoutedEventArgs e) {
-            MessageBox.Show("");
+        private void CheckBox_Checked(object sender, RoutedEventArgs e) {
+            CheckBoxTextBlock.Text = "チェック済み";
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e) {
+            CheckBoxTextBlock.Text = "未チェック";
         }
     }
 }
