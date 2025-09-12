@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -46,9 +47,24 @@ namespace ColorChecker {
             byte b = (byte)bSlider.Value;
             byte g = (byte)gSlider.Value;
 
-            string record = $"R:{r} G:{g} B:{b}";
+            Color color = Color.FromRgb(r, g, b);
+            MyColor[] tempColors = GetColorList();
 
-            if (comboBox.Items.Contains(record)) {
+            string record = "";
+
+            foreach (MyColor c in tempColors) {
+                if (color == c.Color) {
+                    record = c.Name;
+                    break;
+                }
+            }
+
+            if (string.IsNullOrEmpty(record)) {
+                record = $"R:{r} G:{g} B:{b}";
+            }
+
+
+            if (Record.Items.Contains(record)) {
             } else {
                 //未登録なら登録【登録済みなら何もしない】
                 Record.Items.Add(record);
@@ -67,18 +83,62 @@ namespace ColorChecker {
             gSlider.Value = color.G;
         }
 
+        //ListBoxの色を呼び出し  
         private void Record_Selected(object sender, SelectionChangedEventArgs e) {
+
+            if (Record.SelectedItem == null) return;
+
+            MyColor[] tempColors = GetColorList();
+
             string record = Record.SelectedItem.ToString();
+
+            foreach (MyColor c in tempColors) {
+                if (c.Name == record) {
+                    var color = c.Color;
+                    setSliderValue(color);
+                    return;
+                }
+            }
+
             var m = Regex.Match(record, @"^R:([0-9]{1,3})\sG:([0-9]{1,3})\sB:([0-9]{1,3})");
             var r = m.Groups[1].Value;
             var g = m.Groups[2].Value;
             var b = m.Groups[3].Value;
+
+
             if (byte.TryParse(r, out byte rb) &&
                 byte.TryParse(g, out byte gb) &&
                 byte.TryParse(b, out byte bb)) {
                 var c = Color.FromRgb(rb, gb, bb);
                 setSliderValue(c);
             }
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e) {
+            var selectedItem = Record.SelectedItem as string;
+            if (selectedItem != null) {
+                Record.Items.Remove(selectedItem);
+            } else {
+                MessageBox.Show("削除する対象を選択してください。。。", "削除エラー", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+            bool flg = true;
+            string[] message = { "画面を閉じます。よろしいですか？", "本当に？", "マジで？","えっ？","何で？","もう終わるんだよ？","さよなら。。。" };
+            foreach (string m in message) {
+                if (MessageBoxResult.Yes != MessageBox.Show(m, "確認", MessageBoxButton.YesNo, MessageBoxImage.Question)) {
+                    flg = false;
+                    break;
+                }
+            }
+            if (!flg) {
+                e.Cancel = true;
+                return;
+            }
+           //new MainWindow().Show();
+           //MessageBox.Show("また来たにょ～","こんにちわ", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
         }
     }
 }

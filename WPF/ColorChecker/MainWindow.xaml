@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColorChecker"
         mc:Ignorable="d"
+        Closing="Window_Closing"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -53,10 +54,10 @@
                       Grid.Row="3" Width="150"
                       Height="40"
                       HorizontalAlignment="Center"
-                      VerticalAlignment="Center"
+                      VerticalAlignment="Top"
                       ItemsSource="{Binding}"
                       SelectedValue="{Binding Color}"
-                      SelectionChanged="colorSelectionComboBox_SelectionChanged">
+                      SelectionChanged="colorSelectionComboBox_SelectionChanged" RenderTransformOrigin="0.52,-1.069" Margin="0,10,0,0">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <Border Width="80" Height="Auto" Margin="5,0" BorderThickness="1" BorderBrush="Black" >
@@ -116,6 +117,7 @@
                             ,Path=Value,Mode=TwoWay
                             ,UpdateSourceTrigger=PropertyChanged
                             ,StringFormat={}{0:0}}"/>
+            <Button x:Name="Delete" Grid.Column="1" Content="Delete" HorizontalAlignment="Center" Margin="0,70,0,0" Grid.Row="3" VerticalAlignment="Top" Width="150" Height="28" Click="Delete_Click"/>
         </Grid>
         <Grid Grid.Column="2">
             <Grid.RowDefinitions>
@@ -124,7 +126,7 @@
             </Grid.RowDefinitions>
             <!--３枚目-->
             <Button x:Name="Stock" FontSize="25" Content="Stock" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="50" Click="Stock_Click"/>
-            <ListBox x:Name="Record" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Width="250" Height="350" FontSize="20" SelectionChanged="Record_Selected"/>
+            <ListBox x:Name="Record" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Width="250" Height="350" FontSize="20" SelectionChanged="Record_Selected" />
 
 
         </Grid>
