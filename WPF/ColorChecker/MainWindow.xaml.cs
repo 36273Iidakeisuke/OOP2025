@@ -125,7 +125,8 @@ namespace ColorChecker {
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
             bool flg = true;
-            string[] message = { "画面を閉じます。よろしいですか？", "本当に？", "マジで？","えっ？","何で？","もう終わるんだよ？","さよなら。。。" };
+            string[] message = { "画面を閉じます。よろしいですか？"//,"本当に？", "マジで？","えっ？","何で？","もう終わるんだよ？","さよなら。。。"
+                                };
             foreach (string m in message) {
                 if (MessageBoxResult.Yes != MessageBox.Show(m, "確認", MessageBoxButton.YesNo, MessageBoxImage.Question)) {
                     flg = false;
