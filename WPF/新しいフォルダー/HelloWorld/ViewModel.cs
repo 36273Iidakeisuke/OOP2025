@@ -5,19 +5,51 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HelloWorld
-{
-    class ViewModel : BindableBase
-    {
-        public ViewModel() {
-            ChangeMessageCommand = new DelegateCommand(
-                () => GreetingMesseage = "Bye-bye world");
+namespace HelloWorld {
+    class ViewModel : BindableBase {
+        public ViewModel() 
+            {
+            ChangeMessageCommand 
+                = 
+                new DelegateCommand
+                <
+                    string
+                    >
+                    (
+                (
+                    par
+                    ) 
+                    =>
+                GreetingMessage 
+                =
+                par
+                ,
+                (
+                    par
+                    ) 
+                    => 
+                GreetingMessage 
+                !=
+                par
+                )
+                .
+                ObservesProperty
+                (
+                    (
+                        )
+                        =>
+                    GreetingMessage
+                    )
+                ;
         }
         private string _greetingMessage = "Hello World!";
-        public string GreetingMesseage {
-            get=>_greetingMessage;
+        public string GreetingMessage {
+            get => _greetingMessage;
             set => SetProperty(ref _greetingMessage, value);
         }
-        public DelegateCommand ChangeMessageCommand { get; }
+
+        public string NewMessage1 { get; } = "Bye-bye world";
+        public string NewMessage2 { get; } = "Long time no see, world!";
+        public DelegateCommand<string> ChangeMessageCommand { get; }
     }
 }
