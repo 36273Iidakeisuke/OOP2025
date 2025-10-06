@@ -7,15 +7,10 @@ using System.Threading.Tasks;
 
 namespace HelloWorld {
     class ViewModel : BindableBase {
-        public ViewModel() 
-            {
-            ChangeMessageCommand 
-                = 
-                new DelegateCommand
-                <
-                    string
-                    >
-                    (
+        public ViewModel() {
+            ChangeMessageCommand = new DelegateCommand<string
+                >
+                (
                 (
                     par
                     ) 
@@ -27,19 +22,20 @@ namespace HelloWorld {
                 (
                     par
                     ) 
-                    => 
+                    =>
                 GreetingMessage 
                 !=
                 par
                 )
+
                 .
                 ObservesProperty
                 (
-                    (
-                        )
-                        =>
-                    GreetingMessage
+                (
                     )
+                    =>
+                GreetingMessage
+                )
                 ;
         }
         private string _greetingMessage = "Hello World!";
