@@ -175,6 +175,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "WPF\新しい
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConverterApp", "\\172.16.42.1\学生\2025_情報システム\オブジェクト指向プログラミングⅡ\３期目\休んだ人\ConverterApp\ConverterApp.csproj", "{13EF6CCE-EC4B-454F-807A-A1F5FD6DA9A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismObservesSample", "WPF\PrismObservesSample\PrismObservesSample.csproj", "{BCD469C6-401C-4195-96EF-7B05C96DBD6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleUnitConverter", "WPF\SampleUnitConverter\SampleUnitConverter.csproj", "{699D00B8-5FE1-427C-B399-EA8A2DA4240E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -417,6 +421,14 @@ Global
 		{13EF6CCE-EC4B-454F-807A-A1F5FD6DA9A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13EF6CCE-EC4B-454F-807A-A1F5FD6DA9A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13EF6CCE-EC4B-454F-807A-A1F5FD6DA9A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCD469C6-401C-4195-96EF-7B05C96DBD6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCD469C6-401C-4195-96EF-7B05C96DBD6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCD469C6-401C-4195-96EF-7B05C96DBD6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCD469C6-401C-4195-96EF-7B05C96DBD6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{699D00B8-5FE1-427C-B399-EA8A2DA4240E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{699D00B8-5FE1-427C-B399-EA8A2DA4240E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{699D00B8-5FE1-427C-B399-EA8A2DA4240E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{699D00B8-5FE1-427C-B399-EA8A2DA4240E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -493,6 +505,8 @@ Global
 		{E198128B-6166-4871-A06D-911AB4C3F36E} = {BEC76F6C-A280-4646-B0D9-191B6CC5BACE}
 		{23BB4FCE-48A3-4299-99AF-1DDA72092550} = {BEC76F6C-A280-4646-B0D9-191B6CC5BACE}
 		{13EF6CCE-EC4B-454F-807A-A1F5FD6DA9A4} = {BEC76F6C-A280-4646-B0D9-191B6CC5BACE}
+		{BCD469C6-401C-4195-96EF-7B05C96DBD6A} = {BEC76F6C-A280-4646-B0D9-191B6CC5BACE}
+		{699D00B8-5FE1-427C-B399-EA8A2DA4240E} = {BEC76F6C-A280-4646-B0D9-191B6CC5BACE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0E29C428-67C0-40E9-BA4B-874512CFD26C}
