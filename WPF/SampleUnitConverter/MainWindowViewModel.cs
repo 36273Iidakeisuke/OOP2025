@@ -28,8 +28,6 @@ namespace SampleUnitConverter {
             set => SetProperty(ref metricValue, value);
         }
 
-
-
         public double ImperiaValue {
             get => imperialValue;
             set => SetProperty(ref imperialValue, value);
@@ -39,8 +37,6 @@ namespace SampleUnitConverter {
             CurrentMetricUnit = MetricUnit.Units.First();
             CurrentImperialUnit = ImperialUnit.Units.First();
 
-
-
             ImperialUnitToMetric = new DelegateCommand(
                 () => MetricValue = CurrentMetricUnit.FromImperialUnit(
                     CurrentImperialUnit, ImperiaValue));
@@ -48,7 +44,6 @@ namespace SampleUnitConverter {
             MetricToImperialUnit = new DelegateCommand(
                 () => ImperiaValue = CurrentImperialUnit.FromMetricUnit(
                     CurrentMetricUnit, MetricValue));
-
         }
     }
 }
