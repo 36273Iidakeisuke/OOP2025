@@ -17,6 +17,5 @@ namespace Sample.Data {
         /// 電話番号
         /// </summary>
         public string Phone { get; set; } = string.Empty;
-
     }
 }
