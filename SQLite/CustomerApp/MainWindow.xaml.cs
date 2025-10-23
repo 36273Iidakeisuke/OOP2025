@@ -137,13 +137,6 @@ namespace CustomerApp {
             } else {
                 PictureImage.Source = null;
             }
-
-
-            //if (!string.IsNullOrEmpty(_currentImagePath) && File.Exists(_currentImagePath)) {
-            //    PictureImage.Source = new BitmapImage(new Uri(_currentImagePath, UriKind.Absolute));
-            //} else {
-            //    PictureImage.Source = null;
-            //}
         }
 
 
