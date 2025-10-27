@@ -9,11 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="free2.jpg" />
+    <None Remove="free.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="free2.jpg">
+    <Content Include="free.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
