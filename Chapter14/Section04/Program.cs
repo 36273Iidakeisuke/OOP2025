@@ -1,8 +1,8 @@
 ﻿namespace Section04 {
     internal class Program {
-        static void Main(string[] args) {
-            HttpClient hc = 
-            GetHtmlExample(  );
+        static async Task Main(string[] args) {
+            HttpClient hc = new HttpClient();
+            await GetHtmlExample( hc );
         }
 
         static async Task GetHtmlExample(HttpClient httpClient) {
