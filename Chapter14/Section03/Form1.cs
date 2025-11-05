@@ -8,8 +8,8 @@ namespace Section03 {
 
         private async void button1_Click(object sender, EventArgs e) {
             toolStripStatusLabel1.Text = "";
-            var elapsed = await DoLongTimeWorkAsync(4000);
-            toolStripStatusLabel1.Text = $"{elapsed}ƒ~ƒŠ•b";
+            //var elapsed = await DoLongTimeWorkAsync(4000);
+           // toolStripStatusLabel1.Text = $"{elapsed}ƒ~ƒŠ•b";
         }
 
         private async Task DoLongTimeWorkAsync(int milliseconds) {
@@ -18,7 +18,6 @@ namespace Section03 {
                 System.Threading.Thread.Sleep(milliseconds);
             });
             sw.Stop();
-            return sw.ElapsedMilliseconds;
         }
     }
 }
