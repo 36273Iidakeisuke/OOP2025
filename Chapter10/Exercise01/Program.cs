@@ -5,13 +5,13 @@ namespace Exercise01 {
         static void Main(string[] args) {
             var filePath = "source.txt";
             if (File.Exists(filePath)) {
-                using var reader = new StreamReader(filePath);
+                var lines = File.ReadAllLines(filePath);
                 int cnt = 0;
-                while (!reader.EndOfStream) {
-                    var line = reader.ReadLine() ?? string.Empty;
-                    //if (Regex.IsMatch(line, @"\sclass\s")) {
-                    //    cnt++;
-                    //}
+                //if (Regex.IsMatch(line, @"\sclass\s")) {
+                //    cnt++;
+                //}
+
+                foreach (var line in lines) {
                     string[] words = line.Split(' ');
                     var word = words.Where(s => s.Contains("class"));
                     if (word.Count() > 0) {
