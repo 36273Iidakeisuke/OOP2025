@@ -5,7 +5,7 @@ namespace Exercise01 {
         static void Main(string[] args) {
             var filePath = "source.txt";
             if (File.Exists(filePath)) {
-                var lines = File.ReadAllLines(filePath);
+                var lines = File.ReadLines(filePath);
                 int cnt = 0;
                 //if (Regex.IsMatch(line, @"\sclass\s")) {
                 //    cnt++;
