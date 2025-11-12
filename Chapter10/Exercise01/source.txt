@@ -12,7 +12,17 @@ public class Main{
 	}
 
 	private class Counter{
-		private int cnt = 0;
+		private int cnt = 0;fewifihqf
+		hfewqlgfyeqoiw;cfy4q3c
+		fco3irq;gyfeiroq;f[
+		柳田壮太
+		バカあほ飯田渓介
+
+		jfjfjfjfjふぇわふぇわふぇわ
+		ふぇわふぇわふぇわ
+		　ふぇわふぇわあ
+
+		]
 		Counter(){};
 		void up(int value){
 			cnt += value;
