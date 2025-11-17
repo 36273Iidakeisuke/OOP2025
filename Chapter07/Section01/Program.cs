@@ -1,7 +1,7 @@
 ﻿namespace Section01 {
     internal class Program {
         static void Main(string[] args) {
-
+            //この笑顔１００円
             var books = Books.GetBooks();
 
             //本の平均金額を表示
