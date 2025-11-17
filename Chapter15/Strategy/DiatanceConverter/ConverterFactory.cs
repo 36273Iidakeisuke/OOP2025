@@ -12,6 +12,8 @@ namespace DiatanceConverter {
             new FeetConverter(),
             new YardConverter(),
             new InchConverter(),
+            new mileConverter(),
+            new kiloConverter(),
         };
 
         public static ConverterBase? GetInstance(string name) =>
