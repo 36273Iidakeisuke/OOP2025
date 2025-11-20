@@ -15,9 +15,15 @@ namespace TextFileProcessorDl {
         }
 
         public void Execute(string line) {
-            _count++;
-            string normalized = line.Normalize(NormalizationForm.FormKD);
-            Console.WriteLine(normalized);
+
+            //
+            string result = new string(
+                    line.Select(c => ('０' <= c && c <= '９') ? (char)(c - '０' + '0') : c).ToArray()
+                );
+            Console.WriteLine(result);
+            //_count++;
+            //string normalized = line.Normalize(NormalizationForm.FormKD);
+            //Console.WriteLine(normalized);
         }
 
         public void Terminate() {
